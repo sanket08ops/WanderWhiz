@@ -18,18 +18,12 @@ google_api_key = st.sidebar.text_input("🔐 Enter your Google API Key", type="p
 tavily_api_key = st.sidebar.text_input("🔐 Enter your Tavily API Key", type="password")
 weather_api_key = st.sidebar.text_input("🔐 Enter your Weather API Key", type="password")
 
-# Hide the warning until all keys are entered
+# Location Input only after API keys are entered
 if google_api_key and tavily_api_key and weather_api_key:
     # 🌍 Destination Input
     destination = st.text_input("📍 Where are you planning to go?")
 else:
-    destination = None  # No input field displayed until keys are entered
-
-# Only show the warning if the keys aren't entered
-if google_api_key and tavily_api_key and weather_api_key:
-    st.sidebar.success("API Keys entered successfully! Now enter the location.")
-else:
-    st.sidebar.warning("Please enter all API keys.")
+    st.warning("Please enter all API keys in the sidebar.")
 
 # When user clicks the button
 if st.button("Get Travel Info") and all([google_api_key, tavily_api_key, weather_api_key, destination]):
