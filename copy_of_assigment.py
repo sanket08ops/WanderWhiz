@@ -12,13 +12,18 @@ st.set_page_config(page_title="Travel Assistant", page_icon="🌍")
 
 st.title("🌍 AI Travel Assistant")
 
-# 🔑 API Key Inputs
-google_api_key = st.text_input("🔐 Enter your Google API Key", type="password")
-tavily_api_key = st.text_input("🔐 Enter your Tavily API Key", type="password")
-weather_api_key = st.text_input("🔐 Enter your Weather API Key", type="password")
+# Sidebar for API Keys
+st.sidebar.header("🔑 API Keys")
+google_api_key = st.sidebar.text_input("🔐 Enter your Google API Key", type="password")
+tavily_api_key = st.sidebar.text_input("🔐 Enter your Tavily API Key", type="password")
+weather_api_key = st.sidebar.text_input("🔐 Enter your Weather API Key", type="password")
 
-# 🌍 Destination Input
-destination = st.text_input("📍 Where are you planning to go?")
+# Location Input only after API keys are entered
+if google_api_key and tavily_api_key and weather_api_key:
+    # 🌍 Destination Input
+    destination = st.text_input("📍 Where are you planning to go?")
+else:
+    st.warning("Please enter all API keys in the sidebar.")
 
 # When user clicks the button
 if st.button("Get Travel Info") and all([google_api_key, tavily_api_key, weather_api_key, destination]):
