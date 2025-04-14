@@ -69,7 +69,7 @@ if all(k in st.session_state for k in ("weather_api_key", "tavily_api_key", "goo
     os.environ["GOOGLE_API_KEY"] = st.session_state["google_api_key"]
 
     search_tool = TavilySearchResults(k=3)
-    llm = ChatGoogleGenerativeAI(model="gemini-2.0", temperature=0)
+    llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0)
 
     tools = [get_weather, search_tool]
     prompt = ChatPromptTemplate.from_messages([
