@@ -4,3 +4,4 @@ langchain
 langchain-core
 langchain-tavily
 langchain-google-genai
+langchain-google-genai langchain-tavily tavily-python
