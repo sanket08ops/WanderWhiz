@@ -14,7 +14,7 @@ import streamlit as st
 import os
 import requests
 from typing import Dict, Any
-from langchain_core.tools import tool
+from langchain-core.tools import tool
 from langchain_tavily import TavilySearch
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.agents import create_tool_calling_agent, AgentExecutor
