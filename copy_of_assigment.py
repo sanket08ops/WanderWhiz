@@ -7,16 +7,30 @@ Original file is located at
     https://colab.research.google.com/drive/1GUYaXLeQ2mEVUS1W5lWlDGG6XkE4ntQx
 """
 
-#pip install langchain-google-genai langchain-tavily tavily-python
-#pip install streamlit
+# 👇 Force install langchain-core before importing anything
+import subprocess
+import sys
 
+required_packages = [
+    "langchain-core==0.1.33",
+    "langchain==0.1.14",
+    "langchain-community==0.0.19",
+    "langchain-google-genai==0.0.8",
+    "langchain-tavily==0.0.7",
+    "google-generativeai==0.3.2",
+]
+
+for package in required_packages:
+    subprocess.run([sys.executable, "-m", "pip", "install", "--upgrade", package])
+
+# ✅ Now imports will work
 import streamlit as st
 import os
 import requests
 from typing import Dict, Any
-from langchain-core.tools import tool
-from langchain_tavily import TavilySearch
+from langchain_core.tools import tool
 from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_tavily import TavilySearch
 from langchain.agents import create_tool_calling_agent, AgentExecutor
 from langchain_core.prompts import ChatPromptTemplate
 
