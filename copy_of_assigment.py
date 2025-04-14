@@ -10,7 +10,7 @@ from langchain_core.prompts import ChatPromptTemplate
 
 st.set_page_config(page_title="Travel Assistant", page_icon="🌍")
 
-st.title("🌍 AI Travel Assistant")
+st.title("🌍 WONDERWIZ: AI Travel Assistant")
 
 # Sidebar for API Keys
 st.sidebar.header("🔑 API Keys")
