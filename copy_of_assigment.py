@@ -21,7 +21,7 @@ with st.sidebar:
     submit_keys = st.button("✅ Save API Keys")
 
 if submit_keys:
-    os.environ["WEATHER_API_KEY"] = weather_api_key
+    os.environ["WEATHER_API_KEY"] = WEATHER_API_KEY
     os.environ["TAVILY_API_KEY"] = tavily_api_key
     os.environ["GOOGLE_API_KEY"] = google_api_key
     st.success("✅ Keys saved! You can now ask about a place below.")
@@ -40,7 +40,7 @@ if all([weather_api_key, tavily_api_key, google_api_key]):
         if not api_key:
             return {"error": "Missing Weather API Key"}
 
-        url = f"http://api.weatherapi.com/v1/current.json?key={api_key}&q={location}&aqi=no"
+        url = f"http://api.openweathermap.org/data/2.5/weather?q={location}&appid={WEATHER_API_KEY}&units=metric"
         try:
             response = requests.get(url)
             data = response.json()
@@ -63,7 +63,7 @@ if all([weather_api_key, tavily_api_key, google_api_key]):
 
     # Init tools
     search_tool = TavilySearch(max_results=3)
-    llm = ChatGoogleGenerativeAI(model="gemini-2.0-pro", temperature=0)
+    llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0)
 
     tools = [get_weather, search_tool]
     prompt = ChatPromptTemplate.from_messages([
