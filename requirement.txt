@@ -1,7 +1,10 @@
 streamlit
 requests
-langchain
-langchain-core
-langchain-tavily
-langchain-google-genai
+# Langchain packages
+langchain>=0.1.0
+langchain-core>=0.1.0
+langchain-community>=0.0.19
+langchain-google-genai>=0.0.8
+langchain-tavily>=0.0.7
+
 langchain-google-genai langchain-tavily tavily-python
