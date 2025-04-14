@@ -4,10 +4,10 @@ requests
 
 # LangChain full stack (modular)
 langchain==0.1.14
-langchain_core==0.1.33
-langchain_community==0.0.19
-langchain_google-genai==0.0.8
-langchain_tavily==0.0.7
+langchain-core==0.1.33
+langchain-community==0.0.19
+langchain-google-genai==0.0.8
+langchain-tavily==0.0.7
 
 # Needed by langchain-google-genai
 google-generativeai==0.3.2
